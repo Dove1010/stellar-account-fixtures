@@ -1,6 +1,6 @@
 # ROADMAP: Stellar account fixtures
 
-Last updated: 2026-11-23 11:14 UTC
+Last updated: 2026-11-23 17:18 UTC
 
 A corpus of public Stellar account reads, their provenance, and the validator that keeps
 the provenance honest. Nothing here is a claim about whether an account is well
@@ -178,6 +178,7 @@ python3 scripts/roadmap_progress.py --check ROADMAP.md
 
 | When | What | Tasks |
 |---|---|---|
+| 2026-11-23 17:18 | Two suites pinned rather than described (pull request #146): `tests/test_validate_duplicate_json_keys.py` records that `json.loads` keeps the last of two duplicate `home_domain` keys in `account.json`, that shape derivation reads that surviving value, and that `validate.py` still hashes the original bytes, so the behaviour is pinned without claiming key uniqueness is enforced; `tests/test_validate_corpus_identity.py` audits all nine shipped captures, tying each `fixture.toml` id to its directory, its network to the root document for that network, and its `account_id` to the bytes beside it. No validator, tool or fixture changed and no task is ticked. | none ticked |
 | 2026-11-23 11:14 | Tasks 2.27 to 2.30 (closing #41, #42, #43, #44): add fixture by shape label matrix in corpus/shape-matrix.md (#41), compile consolidated provenance table in corpus/provenance.md (#42), document signer structures and master key presence in corpus/signers.md (#43), and create threshold combination matrix in corpus/thresholds.md (#44). Verified by new test suites with zero em dashes. | 2.27, 2.28, 2.29, 2.30 |
 | 2026-11-23 05:15 | Task 2.26 (closing #69): confirm every sidecar account id decodes at version 48 in tests/test_validate_account_id_version.py. | 2.26 |
 | 2026-11-23 04:55 | Tasks 2.22 to 2.25 (closing #70, #71, #72, #73): pin sha256 digest prefix formatting in tests/test_validate_hash_message.py (#70), restrict flags derivation to AUTH_FLAGS in validate.py with tests/test_validate_flag_vocabulary.py (#71), report under-declared shape labels in validate.py with tests/test_validate_shape_underside.py (#72), and pin shape set comparison semantics in tests/test_validate_shape_set_semantics.py (#73). | 2.22, 2.23, 2.24, 2.25 |

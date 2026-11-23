@@ -51,10 +51,7 @@ class ValidateDuplicateJsonKeysTest(unittest.TestCase):
             fixture_dir.mkdir(parents=True)
             (root / "corpus").mkdir()
             (root / "corpus" / "root-public.json").write_text(
-                json.dumps(
-                    {"network_passphrase": validate.NETWORKS["public"][1]}
-                )
-                + "\n",
+                json.dumps({"network_passphrase": validate.NETWORKS["public"][1]}) + "\n",
                 encoding="utf-8",
             )
 
@@ -76,9 +73,7 @@ class ValidateDuplicateJsonKeysTest(unittest.TestCase):
                 'horizon_version = "30.0.0"\n'
                 f'sha256 = "{hashlib.sha256(account_bytes).hexdigest()}"\n'
                 "shape = [\n"
-                + "\n".join(
-                    f'  "{shape}",' for shape in sorted(validate.shapes_of(parsed_account))
-                )
+                + "\n".join(f'  "{shape}",' for shape in sorted(validate.shapes_of(parsed_account)))
                 + "\n]\n"
             )
             (fixture_dir / "fixture.toml").write_text(sidecar, encoding="utf-8")

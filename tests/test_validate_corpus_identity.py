@@ -44,9 +44,7 @@ class ValidateCorpusIdentityTest(unittest.TestCase):
         for directory in shipped_fixtures():
             with self.subTest(fixture=directory.name):
                 sidecar = read_sidecar(directory)
-                account = json.loads(
-                    (directory / "account.json").read_text(encoding="utf-8")
-                )
+                account = json.loads((directory / "account.json").read_text(encoding="utf-8"))
                 self.assertIsInstance(account, dict)
                 self.assertEqual(sidecar.get("account_id"), account.get("account_id"))
 
